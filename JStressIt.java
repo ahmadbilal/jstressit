@@ -16,16 +16,14 @@ public class JStressIt
 				return;
 			}
 			String tstName = args[0];
-			Integer n = Integer.parseInt(args[1]);
-			Integer t = Integer.parseInt(args[2]);
-			int numThreads = n.intValue();
-			int perfTick = t.intValue();
-			System.out.println("Loading test class: " + tstName + " with " + n + " threads per test ...");
+			int numThreads = Integer.parseInt(args[1]);
+			int perfTick = Integer.parseInt(args[2]);
+			System.out.println("Loading test class: " + tstName + " with " + numThreads + " threads per test ...");
 			Class<?> tstClass = Class.forName(tstName);
 			Method [] tstMethods = tstClass.getDeclaredMethods();
 			for(int i = 0; i < tstMethods.length; i++)
 			{
-				System.out.println("Initiating " + n + " Threads for Test: " + tstMethods[i].getName());
+				System.out.println("Initiating " + numThreads + " Threads for Test: " + tstMethods[i].getName());
 				LauncherThread tstLaunch = new LauncherThread(tstClass, tstMethods[i], numThreads, perfTick);
 				new Thread(tstLaunch).start();
 			}
