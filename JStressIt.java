@@ -12,7 +12,7 @@ public class JStressIt
 			System.out.println("JStressIt version 1.0");
 			if(args.length != 3)
 			{
-				System.out.println("Usage: java JStressIt.class <Test Class> <Number of Threads per Test> <Stats Interval in seconds>");
+				System.out.println("Usage: java JStressIt <Test Class> <Number of Threads per Test> <Stats Interval in seconds>");
 				return;
 			}
 			String tstName = args[0];
